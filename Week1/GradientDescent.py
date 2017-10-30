@@ -1,14 +1,21 @@
 # Gradient Descent implemented in Python with numpy module
 import numpy as ny
 
+def SquaredCostFunction(X, t, Y, size):
+	f = ny.dot(X, t) # ignoring theta0 (yet)
+	l = f - Y
+	cost = ny.sum(l ** 2) / (2 * size) # / for the cost to be independant of the training set size 
+
+	return cost
+
 def GradientDescent(X, Y, thet, a, size, times):
 	X_trans = X.transpose()
 
 	for i in range(0, times):
 
-		f = ny.dot(X, thet) # ignoring theta0 (yet)
+		f = ny.dot(X, thet) 
 		loss = f - Y
-		cost = ny.sum(loss ** 2) / (2 * size) # / for the cost to be independant of the training set size 
+		cost = ny.sum(loss ** 2) / (2 * size)
 		
 		g = ny.dot(X_trans, loss) / size
 		thet = thet - a * g
