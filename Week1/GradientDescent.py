@@ -10,17 +10,25 @@ def SquaredCostFunction(X, t, Y, size):
 
 print(SquaredCostFunction(ny.matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), 4, ny.matrix([[8, 0, 0], [4, 9, 2], [6, 7, 8]]), 3))
 
-def GradientDescent(X, Y, thet, a, size, times):
+def GradientDescent(X, Y, c, m, a, size, times):
 	X_trans = X.transpose()
 
 	for i in range(0, times):
 
-		f = ny.dot(X, thet) 
+		f = c + ny.dot(X, m) # taking f(X) := c + mX
 		loss = f - Y
+		print(loss)
 		cost = ny.sum(loss ** 2) / (2 * size)
-		
-		g = ny.dot(X_trans, loss) / size
-		thet = thet - a * g
+
+		# take partial derivative manually..
+
+		g0 = loss / size 
+		g1 = ny.dot(X_trans, loss) / size
+
+		#update the theta values
+
+		c = theta0 - a * g0
+		m = thet1 - a * g1
 
 		print(str(i) + " round, cost is " + str(cost))
 
@@ -29,10 +37,10 @@ def GradientDescent(X, Y, thet, a, size, times):
 
 X = ny.matrix([[1], [4], [6]])
 #print(X)
-Y = ny.matrix([[8, 4, 9]])
+Y = ny.matrix([[6, 6, 7], [8, 6, 7], [3, 4 ,9]])
 #print(Y)
 
-t = GradientDescent(X, Y, 3, 3.14, 3, 5)
+t = GradientDescent(X, Y, 3, 3.14, 3, 50)
 print(t)
 
 
