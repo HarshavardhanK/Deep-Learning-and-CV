@@ -8,6 +8,8 @@ def SquaredCostFunction(X, t, Y, size):
 
 	return cost
 
+print(SquaredCostFunction(ny.matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), 4, ny.matrix([[8, 0, 0], [4, 9, 2], [6, 7, 8]]), 3))
+
 def GradientDescent(X, Y, thet, a, size, times):
 	X_trans = X.transpose()
 
