@@ -29,7 +29,7 @@ def GradientDescent(X, Y, thet, a, size, times):
 
 X = ny.matrix([[1], [4], [6]])
 #print(X)
-Y = ny.matrix([[8, 0, 0], [4, 9, 2], [6, 7, 8]])
+Y = ny.matrix([[8, 4, 9]])
 #print(Y)
 
 t = GradientDescent(X, Y, 3, 3.14, 3, 5)
