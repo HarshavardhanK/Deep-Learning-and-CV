@@ -1,18 +1,19 @@
-# Gradient Descent implement in Python with numpy module
+# Gradient Descent implemented in Python with numpy module
 import numpy as ny
 
 def GradientDescent(X, Y, thet, a, size, times):
-	X_transpose = X.transpose()
+	X_trans = X.transpose()
 
 	for i in range(0, times):
 
-		h = ny.dot(X, thet) # ignoring theta0 (yet)
-		loss = h - Y
+		f = ny.dot(X, thet) # ignoring theta0 (yet)
+		loss = f - Y
 		cost = ny.sum(loss ** 2) / (2 * size) # / for the cost to be independant of the training set size 
+		
+		g = ny.dot(X_trans, loss) / size
+		thet = thet - a * g
 
 		print(str(i) + " round, cost is " + str(cost))
-		gradient = ny.dot(X_transpose, loss) / size
-		thet = thet - a * gradient
 
 	return thet
 
