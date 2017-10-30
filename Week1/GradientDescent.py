@@ -27,12 +27,12 @@ def GradientDescent(X, Y, c, m, a, size, times):
 
 		#update the theta values
 
-		c = theta0 - a * g0
-		m = thet1 - a * g1
+		c = c - a * g0
+		m = m - a * g1
 
 		print(str(i) + " round, cost is " + str(cost))
 
-	return thet
+	return (c, m)
 
 
 X = ny.matrix([[1], [4], [6]])
@@ -40,7 +40,7 @@ X = ny.matrix([[1], [4], [6]])
 Y = ny.matrix([[6, 6, 7], [8, 6, 7], [3, 4 ,9]])
 #print(Y)
 
-t = GradientDescent(X, Y, 3, 3.14, 3, 50)
+t = GradientDescent(X, Y, 2, 3, 3.14, 3, 50)
 print(t)
 
 
