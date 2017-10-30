@@ -18,7 +18,7 @@ def GradientDescent(X, Y, thet, a, size, times):
 	return thet
 
 
-X = ny.matrix([[1, 2, 3], [1, 3, 4], [4, 5, 6]])
+X = ny.matrix([[1], [4], [6]])
 #print(X)
 Y = ny.matrix([[4, 2, 8], [2, 3, 4], [7, 5, 6]])
 #print(Y)
