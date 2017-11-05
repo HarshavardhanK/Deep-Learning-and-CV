@@ -47,7 +47,7 @@ print(ny.shape(Y))
 H = c + m * X
 print(H)'''
 
-path="/Users/HarshavardhanK/Downloads/machine-learning-ex1/ex1/ex1data1.txt"
+path="/Users/HarshavardhanK/Desktop/Code Files/Sublime/Python/Project Manas/AndrewNG/machine-learning-ex1/ex1/ex1data1.txt"
 data_file=open(path, 'r')
 x_arr = []
 y_arr = []
@@ -73,4 +73,15 @@ print((m, n))
 X = ny.c_[ ny.ones(m), X] # insert column
 a = 0.02 # learning rate
 theta = GradientDescent(X, y_arr,a, 10000)
-print(theta)
+#print(theta)
+
+def predictProfit(population, theta): #population in 10k's
+
+	theta_trans = theta.transpose()
+	func = ny.dot(theta_trans, population)
+
+	return func
+
+#pop = input("Enter population: ")
+profit = predictProfit(ny.array([0, 5.0]), theta)
+print("$"+ str(int(profit * 10000)) + " raked in as profit for population of " + str(50000)) # take x0 as 0, x1 as the test population (in 10k's)
