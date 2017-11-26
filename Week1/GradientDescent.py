@@ -9,13 +9,15 @@ def SquaredCostFunction(X, t, Y, size):
 
 	return cost
 
-print(SquaredCostFunction(ny.matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), 4, ny.matrix([[8, 0, 0], [4, 9, 2], [6, 7, 8]]), 3))
+#print(SquaredCostFunction(ny.matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), 4, ny.matrix([[8, 0, 0], [4, 9, 2], [6, 7, 8]]), 3))
 
 def GradientDescent(X, Y, a, times):
 
 	X_trans = X.transpose()
 	size = X.shape[0]
 	m = ny.ones(2)
+
+	print(m.shape)
 
 	for i in range(0, times):
 
@@ -32,43 +34,29 @@ def GradientDescent(X, Y, a, times):
 		#update the m values
 		m = m - a * g1
 
-		print(str(i + 1) + " iter, cost is " + str(cost))
+		#print(str(i + 1) + " iter, cost is " + str(cost))
 
 	return m
 
-
-'''X = ny.matrix([[1], [4], [6]])
-print(ny.shape(X))
-Y = [6, 6, 7]
-print(ny.shape(Y))
-
-(c, m) = GradientDescent(X, Y, 2, 3, 3.14, 3, 50) # deprecated function
-
-H = c + m * X
-print(H)'''
-
-path="/Users/HarshavardhanK/Desktop/Code Files/Sublime/Python/Project Manas/AndrewNG/machine-learning-ex1/ex1/ex1data1.txt"
-data_file=open(path, 'r')
+''' Accessing the data '''
+macbook_path="/Users/harshavardhank/Google Drive/Python/Project Manas/AndrewNG/machine-learning-ex1/ex1/ex1data1.txt"
+imac_path="/Users/HarshavardhanK/Desktop/Code Files/Sublime/Python/Project Manas/AndrewNG/machine-learning-ex1/ex1/ex1data1.txt"
 x_arr = []
 y_arr = []
 
-with open(path, "r") as f:
+with open(macbook_path, "r") as f:
     for l in f:
 
         currentL = l.split(",")
         x_arr.append(float(currentL[0]))
         y_arr.append(float(currentL[1]))
 
-'''for i in range(0, 3):
-    x_arr.append(0)
-    y_arr.append(0)'''
-
 X = ny.array(x_arr)
 X = X.reshape(97, 1)
 y_arr = ny.array(y_arr)
-#y_arr = y_arr.reshape(20,5)
 (m, n) = ny.shape(X)
-print((m, n))
+
+print(X, y_arr)
 
 X = ny.c_[ ny.ones(m), X] # insert column
 a = 0.02 # learning rate
@@ -77,11 +65,11 @@ theta = GradientDescent(X, y_arr,a, 10000)
 
 def predictProfit(population, theta): #population in 10k's
 
-	theta_trans = theta.transpose()
-	func = ny.dot(theta_trans, population)
+	#theta_trans = theta.transpose()
+	func = ny.dot(theta, population)
 
 	return func
 
 #pop = input("Enter population: ")
-profit = predictProfit(ny.array([0, 5.0]), theta)
-print("$"+ str(int(profit * 10000)) + " raked in as profit for population of " + str(50000)) # take x0 as 0, x1 as the test population (in 10k's)
+profit = predictProfit(ny.array([0, 0.1]), theta)
+print("$"+ str(int(profit * 100000)) + " raked in as profit") # take x0 as 0, x1 as the test population (in 10k's)
