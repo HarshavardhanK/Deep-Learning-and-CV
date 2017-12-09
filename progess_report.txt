@@ -6,3 +6,13 @@ Nov 1-3: Completed Week 2 of Andrew NG, exercise was completed in Week 1
 *Studying for end semester labs and exams. Need to pass lmao*
 
 November 24-26: Completed Week 3 of Andrew NG along with implementation of logistic regression and plotting decision regions as asked in the assignment.
+
+November 29-20: Completed Week 4 of Andrew NG theory
+
+December 1: Implemented feed forward algorithm in C++ || Edit: also in python
+
+December 2-4: Completed Week 5 of Andrew NG
+
+December 4-6: Implemented a neural network to classify handwritten digits. 
+
+Used Yan LeCunn’s MNIST instead of the one provided by Andrew NG since I don’t have MATLAB or Octave to export the .m to CSV files. 60k training examples, 10k testing examples. 99.2% accuracy. 100 units in hidden layer, 100 in mini batches for stochastic gradient descent

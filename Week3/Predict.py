@@ -60,8 +60,8 @@ def find_accept_point():
 
 point = find_accept_point()
 
-plt.scatter(new_exam1_arr[0:40], new_exam2_arr[0:40], color='red', marker='x', label='Rejected')
-plt.scatter(new_exam1_arr[40:size], new_exam2_arr[40:size], color='blue', marker='o', label='Accepted')
+plt.scatter(new_exam1_arr[0:point], new_exam2_arr[0:40], color='red', marker='x', label='Rejected')
+plt.scatter(new_exam1_arr[point:size], new_exam2_arr[40:size], color='blue', marker='o', label='Accepted')
 plt.xlabel("Exam 1 Marks")
 plt.ylabel("Exam 2 Marks")
 plt.show()

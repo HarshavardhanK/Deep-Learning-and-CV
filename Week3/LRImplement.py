@@ -24,8 +24,10 @@ def plot_lr_curve():
     plt.show()
 
 X = np.array([1, 2,3,4,5,6,7,7,8]).reshape(9, 1)
-y = np.array([1, 0, 0, 1, 1, 0, 0, 1, 2]).reshape(9,1)
-#print(X, y)
+y = np.array([1, 0, 0, 1, 1, 0, 0, 1, 1]).reshape(9,1)
+#plt.scatter(X, y)
+#plt.show()
+
 t = 2
 
 def test_sigmoid():
@@ -33,6 +35,10 @@ def test_sigmoid():
     sig_X = sigmoid(X)
     print(sig_X)
 
+y = X ** 2 + np.cos(X) + X
+print(y)
+plt.plot(X, sigmoid(y))
+plt.show()
 
 def logartihmic_cost_function(X, y, t):
 
@@ -65,5 +71,5 @@ def gradient_descent(X, y, a, n_iters):
 
     return theta
 
-#gd = gradient_descent(X, y, 0.01, 20)
-#print(gd)
+gd = gradient_descent(X, y, 0.01, 20)
+print(gd)
