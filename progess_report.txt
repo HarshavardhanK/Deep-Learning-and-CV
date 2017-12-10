@@ -16,3 +16,9 @@ December 2-4: Completed Week 5 of Andrew NG
 December 4-6: Implemented a neural network to classify handwritten digits. 
 
 Used Yan LeCunn’s MNIST instead of the one provided by Andrew NG since I don’t have MATLAB or Octave to export the .m to CSV files. 60k training examples, 10k testing examples. 99.2% accuracy. 100 units in hidden layer, 100 in mini batches for stochastic gradient descent
+
+December 7-9: Finished Week 6 of Andrew Ng lectures. Finished 3 lecture videos of CS231n (loss function and optimization). Reading about convolutions (mathematics), recurrent nets and LSTMs, and ConvNets,
+
+December 10: Started with Geoffrey Hinton's Neural Networks for Machine Learning course on Couersa. 
+
+December 11: Started with OpenCV tutorials. 4th lecture of CS231n. Keras and TensorFlow tutorials to for LR and neural nets. 

@@ -238,7 +238,7 @@ neuralNet.curve_fit(X_train, y_train, True)
 w1, w2 = neuralNet.get_weights()
 
 # iMac: 12min 35s for 1000 epochs with 100 units in hidden layer
-# MacBook Pro: 
+# MacBook Pro:
 
 print(w1)
 print(w2)
