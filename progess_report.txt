@@ -21,6 +21,6 @@ December 7-9: Finished Week 6 of Andrew Ng lectures. Finished 3 lecture videos o
 
 December 10: Started with Geoffrey Hinton's Neural Networks for Machine Learning course on Couersa. 
 
-December 11: Started with OpenCV tutorials. 4th lecture of CS231n. Keras and TensorFlow tutorials to for LR and neural nets. 
+December 11: Started with OpenCV and ROS tutorials. 4th lecture of CS231n. Keras and TensorFlow tutorials for LR and neural nets. 
 
 December 12-14: Started with Ian Goodwell's Deep Learning. Finished lecture 4 and 5 of CS231n. Finished 1st lecture of David Silver
