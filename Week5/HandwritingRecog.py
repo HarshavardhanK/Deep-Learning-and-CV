@@ -12,27 +12,27 @@ import shelve # to store the trained network
 
 path="/Users/harshavardhank/Google Drive/Python/MachineLearning/MNIST"
 
-def load_mnist(path, kind='train'):
-    #Load MNIST training data from path
+def load(path, kind):
+    #Load MNIST training data from path of kind
 
     labels_path = os.path.join(path, '%s-labels-idx1-ubyte' % kind)
     images_path = os.path.join(path, '%s-images-idx3-ubyte' % kind)
 
-    with open(labels_path, 'rb') as lbpath:
-        m, n = struct.unpack('>II', lbpath.read(8))
-        labels = np.fromfile(lbpath, dtype=np.uint8)
+    with open(labels_path, 'rb') as l_path:
+        m, n = struct.unpack('>II', l_path.read(8))
+        labels = np.fromfile(l_path, dtype=np.uint8)
 
-    with open(images_path, 'rb') as imgpath:
-        m, num, rows, cols = struct.unpack('>IIII', imgpath.read(16))
-        images = np.fromfile(imgpath, dtype=np.uint8).reshape(len(labels), 784)
+    with open(images_path, 'rb') as img_path:
+        m, num, rows, cols = struct.unpack('>IIII', img_path.read(16))
+        images = np.fromfile(img_path, dtype=np.uint8).reshape(len(labels), 784)
 
 
     return images, labels
 
-X_train, y_train = load_mnist(path, kind='train')
+X_train, y_train = load(path,'train')
 print('Rows: %d, columns: %d' % (X_train.shape[0], X_train.shape[1]))
 
-X_test, y_test = load_mnist(path, kind='t10k')
+X_test, y_test = load(path,'t10k')
 print('Rows: %d, columns: %d' % (X_test.shape[0], X_test.shape[1]))
 
 def plot_digits(num):
@@ -77,7 +77,7 @@ class NeuralNetwork(object):
     #to convert label values, aka categorical values into numeric form
 
                                     #EDIT: integer encoding is foregone with
-    def encode_labels(self, y, k):
+    def onehot_enc(self, y, k):
         onehot = np.zeros((k, y.shape[0]))
 
         for idx, val in enumerate(y):
@@ -87,6 +87,8 @@ class NeuralNetwork(object):
         return onehot
 
     def init_weights(self):
+
+        #randomly initialise weights to avoid making all the layers identical
 
         #w1: from input layer to hidden layer - (+1) for the bias
 
@@ -107,14 +109,18 @@ class NeuralNetwork(object):
         sg = self.sigmoid(z)
         return sg * (1 - sg)
 
+    #Add the bias unit
+
+    #row wise wnd column-wise is to ensure it is added even after the transposes
+
     def add_bias(self, X, how='column'):
 
         if how == 'column':
-            X_new = np.ones((X.shape[0], X.shape[1] + 1))
-            X_new[:, 1:] = X
+            X1 = np.ones((X.shape[0], X.shape[1] + 1))
+            X1[:, 1:] = X
         elif how == 'row':
-            X_new = np.ones((X.shape[0] + 1, X.shape[1]))
-            X_new[1:, :] = X
+            X1 = np.ones((X.shape[0] + 1, X.shape[1]))
+            X1[1:, :] = X
         else:
             raise AttributeError('you must enter column or row. Nothing else.')
 
@@ -157,7 +163,8 @@ class NeuralNetwork(object):
         return cost
 
     def get_grad(self, a1, a2, a3, z2, y_enc, w1, w2):
-        #backprop
+
+        #backpropagation algorithm
 
         sigma3 = a3 - y_enc
         z2 = self.add_bias(z2, how='row')
@@ -178,15 +185,15 @@ class NeuralNetwork(object):
     def predict(self, X):
 
         a1, z2, a2, z3, a3 = self.feed_forward(X, self.w1, self.w2)
-        y_pred = np.argmax(z3, axis=0)
+        y = np.argmax(z3, axis=0) #finds the max activation in the output vector
 
-        return y_pred
+        return y
 
     def curve_fit(self, X, y, print_progress=False):
 
         self.cost = []
         X_data, y_data = X.copy(), y.copy()
-        y_enc = self.encode_labels(y, self.num_out)
+        y_enc = self.onehot_enc(y, self.num_out)
 
         delta_w1_prev = np.zeros(self.w1.shape)
         delta_w2_prev = np.zeros(self.w2.shape)
@@ -238,7 +245,7 @@ neuralNet.curve_fit(X_train, y_train, True)
 w1, w2 = neuralNet.get_weights()
 
 # iMac: 12min 35s for 1000 epochs with 100 units in hidden layer
-# MacBook Pro:
+# MacBook Pro: 12min 40s 1000 epochs with 100 units in hidden layer
 
 print(w1)
 print(w2)
