@@ -124,7 +124,7 @@ class NeuralNetwork(object):
         else:
             raise AttributeError('you must enter column or row. Nothing else.')
 
-        return X_new
+        return X1
 
     def feed_forward(self, X, w1, w2):
 
@@ -240,34 +240,43 @@ class NeuralNetwork(object):
         return self.w1, self.w2
 
 #param values: 10 output neurons (for 10 digits), 28 input neurons (for 28x28 pixel), 50 units in hidden layers (arbitrarily chosen)
-neuralNet = NeuralNetwork(10, X_train.shape[1], 100, 0.0, 0.1, 1000, 0.001, 0.001, 0.00001, True, 100, 1)
+'''neuralNet = NeuralNetwork(10, X_train.shape[1], 100, 0.0, 0.1, 1000, 0.001, 0.001, 0.00001, True, 100, 1)
 neuralNet.curve_fit(X_train, y_train, True)
-w1, w2 = neuralNet.get_weights()
+w1, w2 = neuralNet.get_weights()'''
 
 # iMac: 12min 35s for 1000 epochs with 100 units in hidden layer
 # MacBook Pro: 12min 40s 1000 epochs with 100 units in hidden layer
 
-print(w1)
-print(w2)
+'''print(w1)
+print(w2)'''
 
 def load_network(units):
 
-    saved_path="/Users/harshavardhank/Google Drive/Python/MachineLearning/TrainedNetworks/HandwrittenDigits1"
+    #50 units: handWT
+    #100 units: Hundred
+
+    saved_path="/Users/HarshavardhanK/Google Drive/Python/Project Manas/CourseraML/Week5/TrainedNetworks/HandwrittenDigits"
 
     load_shelf = shelve.open(saved_path)
     #type(load_shelf)
-    neuralNet = load_shelf['handWT'+str(units)]
+    neuralNet = load_shelf['Hundred']
     load_shelf.close()
 
     return neuralNet
 
-#neuralNet = load_network(100)
+neuralNet = load_network(100)
+
+'''busdata=shelve.open("/Users/HarshavardhanK/Google\ Drive/Python/Project\ Manas/CourseraML/Week5/TrainedNetworks/HandwrittenDigits")
+keys = list(bustdata.keys())
+keys.sort()
+for lctno in keys():
+    outputLine( lctno , busdata[ lctno ])'''
 
 def save_network():
 
     #save the neuralNet using shelve to directly load instead of retraining whenever the program is run
                     #moved path on 4/12/2017
-    shelf = shelve.open("/Users/harshavardhank/Google Drive/Python/MachineLearning/TrainedNetworks" + "handWT")
+    shelf = shelve.open("/Users/HarshavardhanK/Google Drive/Python/Project Manas/CourseraML/Week5/TrainedNetworks/HandwrittenDigits", 'w')
     handWT = neuralNet #save this neural network as handWT- 'handWriting Trained'
     shelf['HandWT100'] = handWT
     shelf.close()

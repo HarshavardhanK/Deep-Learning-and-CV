@@ -23,4 +23,6 @@ December 10: Started with Geoffrey Hinton's Neural Networks for Machine Learning
 
 December 11: Started with OpenCV and ROS tutorials. 4th lecture of CS231n. Keras and TensorFlow tutorials for LR and neural nets. 
 
-December 12-14: Started with Ian Goodwell's Deep Learning. Finished lecture 4 and 5 of CS231n. Finished 1st lecture of David Silver's Reinforcement Learning
+December 12-14: Started with Ian Goodfellow's Deep Learning. Finished lecture 4 and 5 of CS231n. Finished 1st lecture of David Silver's Reinforcement Learning
+
+December 15-24: CS231n, Reinforcement learning lectures. Referring Ian Goodfellow's Deep Learning. OpenCV and ROS tutorial, and tasks
