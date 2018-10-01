@@ -74,6 +74,7 @@ def gradient_descent(X, y, a, iters):
 gd = gradient_descent(X, y, 0.01, 50)
 print(gd)
 
-def J_reg(X,a,y,reg_lambda) : # Cost Function with Regularization
-    m = y.size
-    return J(X,a,y) + reg_lambda/(2.0*m) * np.dot(a[1:],a[1:])
+def cost_reg(X, Y, t,reg_lambda) :
+    # Cost Function with Regularization
+    m = Y.size
+    return logartihmic_cost_function(X,Y,t) + reg_lambda/(2.0*m) * np.dot(t[1:],t[1:])
