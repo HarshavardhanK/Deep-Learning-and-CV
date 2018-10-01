@@ -77,4 +77,4 @@ print(gd)
 def cost_reg(X, Y, t,reg_lambda) :
     # Cost Function with Regularization
     m = Y.size
-    return logartihmic_cost_function(X,Y,t) + reg_lambda/(2.0*m) * np.dot(t[1:],t[1:])
+    return logartihmic_cost_function(X,Y,t) + reg_lambda / (2.0 * m) * np.dot(t[1:],t[1:])
