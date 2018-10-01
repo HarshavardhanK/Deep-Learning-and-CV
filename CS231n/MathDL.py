@@ -28,7 +28,7 @@ def printFunctions():
 
     #print("Softmax", softmax(X))
     print("Softmax2", softmax2(X))
-    print("Softmax loss", softmaxLoss(X))
+    print("Softmax ", softmaxLoss(X))
 
 
 printFunctions()

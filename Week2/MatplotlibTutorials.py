@@ -18,6 +18,6 @@ fit_fn = np.poly1d(fit)
 # fit_fn is now a function which takes in x and returns an estimate for y
 
 plt.plot(x,y, 'yo', x, fit_fn(x), '--k')
-plt.xlim(0, 5)
-plt.ylim(0, 12)
+plt.xlim(0, 15)
+plt.ylim(0, 30)
 plt.show()

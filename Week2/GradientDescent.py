@@ -72,4 +72,4 @@ def predictProfit(population, theta): #population in 10k's
 
 #pop = input("Enter population: ")
 profit = predictProfit(ny.array([0, 0.1]), theta)
-print("$"+ str(int(profit * 100000)) + " raked in as profit") # take x0 as 0, x1 as the test population (in 10k's)
+ # take x0 as 0, x1 as the test population (in 10k's)
