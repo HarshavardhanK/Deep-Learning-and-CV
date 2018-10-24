@@ -1,2 +1,0 @@
-
- October 30: Completed Week 1 of ML Stanford, along with gradient descent implementation in python
