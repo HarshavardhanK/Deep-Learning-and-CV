@@ -54,13 +54,21 @@ def logartihmic_cost_function(X, y, t):
 
 #print(logartihmic_cost_function(X, y, t))
 
+<<<<<<< HEAD
 def gradient_descent(X, y, a, n_iters):
+=======
+def gradient_descent(X, y, a, iters):
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 
     theta = np.ones(2)
 
     m = X.shape[0]
 
+<<<<<<< HEAD
     for _ in range(n_iters):
+=======
+    for _ in range(iters):
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 
         h = sigmoid(np.dot(X, theta))
         loss = y - h
@@ -71,5 +79,15 @@ def gradient_descent(X, y, a, n_iters):
 
     return theta
 
+<<<<<<< HEAD
 gd = gradient_descent(X, y, 0.01, 20)
 print(gd)
+=======
+gd = gradient_descent(X, y, 0.01, 50)
+print(gd)
+
+def cost_reg(X, Y, t,reg_lambda) :
+    # Cost Function with Regularization
+    m = Y.size
+    return logartihmic_cost_function(X,Y,t) + reg_lambda / (2.0 * m) * np.dot(t[1:],t[1:])
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04

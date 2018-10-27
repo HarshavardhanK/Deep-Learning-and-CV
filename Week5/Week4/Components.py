@@ -1,5 +1,6 @@
 #feed forward algorithm in py
 
+<<<<<<< HEAD
 #1/12/2017
 
 #EDIT 1: 2/12/2017: passed hidden layer through sigmoid
@@ -9,6 +10,11 @@
 
 
 
+=======
+#ignore addition of bias
+#support for addition of bias to de done later during EDIT 2
+
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 import numpy as np
 
 def sigmoid(n):
@@ -55,6 +61,7 @@ def feed_forward2(X, w1, w2, w3):
 
 #a1, h2, a2, h3, a3 = feedForward(X, w1, w2)
 a1, h2, a2, h3, a3, h4, a4 = feed_forward2(X, w1, w2, w3)
+<<<<<<< HEAD
 '''print(a1)
 print(h2)
 print(a2)
@@ -64,3 +71,5 @@ print(h4)
 print(a4)'''
 
 def cost():
+=======
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04

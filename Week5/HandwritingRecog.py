@@ -122,7 +122,11 @@ class NeuralNetwork(object):
             X1 = np.ones((X.shape[0] + 1, X.shape[1]))
             X1[1:, :] = X
         else:
+<<<<<<< HEAD
             raise AttributeError('you must enter column or row. Nothing else.')
+=======
+            raise AttributeError('you must enter column or row.')
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 
         return X1
 
@@ -266,12 +270,15 @@ def load_network(units):
 
 neuralNet = load_network(100)
 
+<<<<<<< HEAD
 '''busdata=shelve.open("/Users/HarshavardhanK/Google\ Drive/Python/Project\ Manas/CourseraML/Week5/TrainedNetworks/HandwrittenDigits")
 keys = list(bustdata.keys())
 keys.sort()
 for lctno in keys():
     outputLine( lctno , busdata[ lctno ])'''
 
+=======
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 def save_network():
 
     #save the neuralNet using shelve to directly load instead of retraining whenever the program is run
@@ -300,11 +307,19 @@ def plot_graph():
 
 y_train_pred = neuralNet.predict(X_train)
 acc = np.sum(y_train == y_train_pred, axis=0) / X_train.shape[0]
+<<<<<<< HEAD
 print('Training accuracy is: %.2f%%' % (acc*100))
 
 y_test_pred = neuralNet.predict(X_test)
 acc = np.sum(y_test == y_test_pred, axis=0) / X_test.shape[0]
 print('Test accuracy is: %.2f%%' % (acc*100))
+=======
+print('Training accuracy: %.2f%%' % (acc*100))
+
+y_test_pred = neuralNet.predict(X_test)
+acc = np.sum(y_test == y_test_pred, axis=0) / X_test.shape[0]
+print('Test accuracy: %.2f%%' % (acc*100))
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 
 
 def plot_results(num):

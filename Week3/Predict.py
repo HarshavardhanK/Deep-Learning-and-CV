@@ -62,15 +62,25 @@ point = find_accept_point()
 
 plt.scatter(new_exam1_arr[0:point], new_exam2_arr[0:40], color='red', marker='x', label='Rejected')
 plt.scatter(new_exam1_arr[point:size], new_exam2_arr[40:size], color='blue', marker='o', label='Accepted')
+<<<<<<< HEAD
 plt.xlabel("Exam 1 Marks")
 plt.ylabel("Exam 2 Marks")
+=======
+plt.xlabel("Exam 1")
+plt.ylabel("Exam 2")
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 plt.show()
 
 lr = LogisticRegression(C=100.0, random_state=1)
 lr.fit(X, y)
 plt.title("Acceptance Scatter Plot")
+<<<<<<< HEAD
 plt.xlabel("Exam 1 Marks")
 plt.ylabel("Exam 2 Marks")
+=======
+plt.xlabel("Exam 1")
+plt.ylabel("Exam 2")
+>>>>>>> 6a18a5c2e778f58e0e57ac60a4533996c34c2b04
 plot_decision_regions(X, y, clf=lr, res=0.2, legend=2)
 plt.show()
 
